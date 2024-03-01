@@ -147,10 +147,14 @@ def filter_names(names: Tuple[str]) -> List[str]:
     pattern = re.compile(r'(\d{2,}|, )')
     filtered_names = [s for s in filtered_names if not pattern.search(s)]
 
+    for i, name in enumerate(filtered_names):
+        if name.startswith('"') and name.endswith('"'):
+            filtered_names[i] = name[1:-1]
+
     return filtered_names
 
 
-def get_compound(cid: int):
+def get_compound(cid: int) -> Compound:
 
     compound_obj = None
     try:
@@ -176,7 +180,7 @@ def get_compound(cid: int):
     return compound_obj
 
 
-def run_cids(count=50):
+def run_cids(count=50) -> None:
 
     print('Run CIDs starting...')
 
@@ -223,3 +227,5 @@ def run_cids(count=50):
 
 if __name__ == '__main__':
     run_cids(count=100)
+    # comp = get_compound(73)
+    # print(comp.trivial_names)
