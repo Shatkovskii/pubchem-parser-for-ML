@@ -180,7 +180,7 @@ def get_compound(cid: int) -> Compound:
     return compound_obj
 
 
-def run_cids(count=50) -> None:
+def run_cids(count: int = 50) -> None:
 
     print('Run CIDs starting...')
 
@@ -227,5 +227,3 @@ def run_cids(count=50) -> None:
 
 if __name__ == '__main__':
     run_cids(count=100)
-    # comp = get_compound(73)
-    # print(comp.trivial_names)
